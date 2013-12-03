@@ -12,7 +12,7 @@ setup(
     packages=['simplelogger'],
     include_package_data=True,
     license='BSD License',
-    description='an easy way to you record yours system logging messages and request exceptions.',
+    description='An easy way to you record yours system logging messages and request exceptions.',
     long_description=README,
     url='https://github.com/LucasMagnum/django-simple-logger',
     author='Lucas Magnum Lopes Oliveira',

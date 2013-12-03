@@ -1,8 +1,14 @@
 =====
 Simple Logger
 =====
-Simple Logger is a Django app that provides an easy way to you record yours
-system logging messages and request exceptions.
+Simple Logger is a Django app that provides an easy way to you record on database
+yours system logging messages and request exceptions.
+
+
+How install
+------------
+
+    pip install django-simple-logger
 
 
 Quick start
