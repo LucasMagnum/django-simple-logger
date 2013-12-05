@@ -2,6 +2,7 @@ from django.db import models
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
 
 UserModel = getattr(settings, 'AUTH_USER_MODEL', User)
 
@@ -25,18 +26,19 @@ class LogRecord(models.Model):
         (50, 'CRITICAL')
     )
 
-    name = models.CharField(max_length=120)
+    name = models.CharField(_('name'), max_length=120)
     level = models.PositiveIntegerField(default=0, choices=LEVEL_CHOICES)
 
     msg = models.TextField()
     extra = models.TextField(blank=True)
 
-    added_on = models.DateTimeField(auto_now_add=True)
-    added_by = models.ForeignKey(UserModel, blank=True, null=True)
+    added_on = models.DateTimeField(_('added on'), auto_now_add=True)
+    added_by = models.ForeignKey(
+        UserModel, verbose_name=_('added by'), blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Log Record'
-        verbose_name = 'Log Records'
+        verbose_name = _('Log Record')
+        verbose_name_plural = _('Log Records')
         ordering = ['-added_on']
 
     def __unicode__(self):
@@ -58,21 +60,22 @@ class ExceptionRecord(models.Model):
         incoming HTTP request or manually when you call a
         `create_from_exception` method in a exception context.
     """
-    type = models.CharField(blank=True, max_length=128, db_index=True)
-    value = models.TextField()
+    type = models.CharField(_('type'), blank=True, max_length=128, db_index=True)
+    value = models.TextField(_('value'))
 
     traceback = models.TextField(blank=True)
     traceback_html = models.TextField(blank=True)
 
-    path = models.URLField(null=True, blank=True, verify_exists=False)
+    path = models.URLField(_('path'), null=True, blank=True, verify_exists=False)
     error_id = models.CharField(max_length=20, blank=True)
 
-    added_on = models.DateTimeField(auto_now_add=True)
-    added_by = models.ForeignKey(User, blank=True, null=True)
+    added_on = models.DateTimeField(_('added on'), auto_now_add=True)
+    added_by = models.ForeignKey(
+        UserModel, verbose_name=_('added by'), blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Exception'
-        verbose_name_plural = 'Exceptions'
+        verbose_name = _('Exception')
+        verbose_name_plural = _('Exceptions')
         ordering = ['-added_by']
 
     def __unicode__(self):
