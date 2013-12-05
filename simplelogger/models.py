@@ -42,7 +42,7 @@ class LogRecord(models.Model):
         ordering = ['-added_on']
 
     def __unicode__(self):
-        return u'%s-%s' % (self.name, self.msg)
+        return u'%s-%s' % (self.get_level_display(), self.msg)
 
     @classmethod
     def add(cls, **kwargs):
