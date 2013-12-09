@@ -1,9 +1,14 @@
 import datetime
+import logging
+
 from optparse import make_option
 
 from django.core.management.base import BaseCommand
 
 from simplelogger.models import LogRecord
+
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -38,3 +43,12 @@ class Command(BaseCommand):
         logs.delete()
 
         self.stdout.write('%s logs was deleted \n' % count)
+
+        logger_msg = (
+            'Clean logs command was executed %s. \n'
+            '%s logs older than %s was deleted \n.' % (
+                datetime.datetime.now(),
+                count,
+                expire_date)
+        )
+        logger.debug(logger_msg)

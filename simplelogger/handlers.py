@@ -17,6 +17,7 @@ class DBLogRecordHandler(logging.Handler):
             'args': record.args,
         }
         LogRecord.add(
+            name=record.name.split('.')[0],
             msg=record.msg,
             level=record.levelno,
             extra=json.dumps(extra),
