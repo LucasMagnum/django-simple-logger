@@ -53,6 +53,8 @@ Quick start
     }
 
 
+    # You can use the handler, with any logger that you want.
+
 4. Run `python manage.py syncdb` to create the simple logger models.
 
 5. Start the development server and visit http://127.0.0.1:8000/admin/
