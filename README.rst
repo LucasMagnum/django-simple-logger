@@ -10,8 +10,7 @@ How install
 
 ::
 
-    git clone https://github.com/LucasMagnum/django-simple-logger.git
-    python setup.py install
+    pip install -e git+git://github.com/LucasMagnum/django-simple-logger#egg=simplelogger
 
 
 Quick start
