@@ -61,6 +61,24 @@ Quick start
    and you can see the log (you'll need the Admin app enabled).
 
 
+Commands
+--------
+
++-----------+-------------------------+-------------------------------+
+| Command                             | Action                        |
++=====================================+===============================+
+| simplelogger_cleanup                | Delete logs and exceptions    |
++-------------------------------------+-------------------------------+
+| simplelogger_cleanlogs              | Delete logs                   |
++------------------------+------------+-------------------------------+
+| simplelogger_cleanexceptions        | Delete exceptions             |
++-------------------------------------+-------------------------------+
+
+Parameters:
+
+--days=DAYS   all commands accept a number of days to delete records.
+
+
 Reference
 ---------
 
