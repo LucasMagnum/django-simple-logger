@@ -7,7 +7,7 @@ class CommonAttrMixin(object):
     raw_id_fields = ('added_by',)
     readonly_fields = ('added_on',)
     date_hierarchy = 'added_on'
-    ordering = ('-added_by',)
+    ordering = ('-added_on',)
 
 
 class LogRecordAdmin(CommonAttrMixin, admin.ModelAdmin):
