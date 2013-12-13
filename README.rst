@@ -39,6 +39,7 @@ Quick start
 
 3. Now, you can use "simplelogger_dbhandler", if you want log all messages from `simplelogger`, do that::
 
+    # Use a specific logger "simplelogger"
     LOGGING = {
 
      'loggers': {
@@ -47,13 +48,28 @@ Quick start
             'simplelogger': {
                 'handlers': ['simplelogger_dbhandler'],
                 'level': DEBUG,
-                'propagate': True,
+                'propagate': False,
             }
         }
     }
 
+    # Log all messages
+    LOGGING = {
 
-    # You can use the handler, with any logger that you want.
+     'loggers': {
+            ...
+
+            '': {
+                'handlers': ['simplelogger_dbhandler'],
+                'level': DEBUG,
+                'propagate': False,
+            }
+        }
+    }
+
+    
+
+    
 
 4. Run `python manage.py syncdb` to create the simple logger models.
 
