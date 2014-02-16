@@ -100,9 +100,7 @@ class ExceptionRecord(models.Model):
         from django.http import Http404
         from django.views.debug import ExceptionReporter
 
-        exc_info = kwargs.get('exc_info')
-        if exc_info is None:
-            exc_info = sys.exc_info()
+        exc_info = kwargs.get('exc_info', sys.exc_info())
 
         typ, value, trace = exc_info
 
