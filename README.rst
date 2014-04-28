@@ -47,7 +47,7 @@ Quick start
 
             'simplelogger': {
                 'handlers': ['simplelogger_dbhandler'],
-                'level': DEBUG,
+                'level': 'DEBUG',
                 'propagate': False,
             }
         }
@@ -61,7 +61,7 @@ Quick start
 
             '': {
                 'handlers': ['simplelogger_dbhandler'],
-                'level': DEBUG,
+                'level': 'DEBUG',
                 'propagate': False,
             }
         }
